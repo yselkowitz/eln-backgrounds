@@ -2,7 +2,7 @@ SUBDIRS = default
 VERSION = 1.0
 NAME =  fedora-eln-backgrounds-$(VERSION)
 
-WP_NAME=eln
+WP_NAME=fedora-eln
 WP_BIGNAME=ELN
 
 WP_INSTALL_ROOT=$(DESTDIR)/usr/share

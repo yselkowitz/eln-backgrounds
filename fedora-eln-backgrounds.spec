@@ -55,12 +55,12 @@ Fedora ELN default theme.
 
 %files base
 %license CC-BY-SA-4.0 Attribution
-%dir %{_datadir}/backgrounds/eln
-%dir %{_datadir}/backgrounds/eln/default
-%{_datadir}/backgrounds/eln/default/eln*.{png,xml}
+%dir %{_datadir}/backgrounds/fedora-eln
+%dir %{_datadir}/backgrounds/fedora-eln/default
+%{_datadir}/backgrounds/fedora-eln/default/fedora-eln*.{png,xml}
 
 %files gnome
-%{_datadir}/gnome-background-properties/eln.xml
+%{_datadir}/gnome-background-properties/fedora-eln.xml
 %dir %{_datadir}/gnome-background-properties/
 
 %changelog
