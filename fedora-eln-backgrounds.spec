@@ -12,7 +12,7 @@ BuildArch:      noarch
 BuildRequires:  make
 BuildRequires:  ImageMagick
 
-Provides:       system-backgrounds = %{rhel}-%{release}
+Provides:       system-backgrounds
 
 
 %description
@@ -32,7 +32,6 @@ This package contains desktop backgrounds for the Fedora ELN default theme.
 
 
 %files
-%doc
 %license CC-BY-SA-4.0 Attribution
 %dir %{_datadir}/backgrounds
 %dir %{_datadir}/backgrounds/fedora-eln
