@@ -12,7 +12,9 @@ BuildArch:      noarch
 BuildRequires:  make
 BuildRequires:  ImageMagick
 
+%if 0%{?eln}
 Provides:       system-backgrounds
+%endif
 
 
 %description
