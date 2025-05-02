@@ -3,8 +3,8 @@
 <wallpapers>
     <wallpaper deleted="false">
         <name>Fedora ELN Default</name>
-        <filename>/usr/share/backgrounds/eln/default/fedora-eln-01-day.png</filename>
-        <filename-dark>/usr/share/backgrounds/eln/default/fedora-eln-01-night.png</filename-dark>
+        <filename>/usr/share/backgrounds/fedora-eln/default/fedora-eln-01-day.png</filename>
+        <filename-dark>/usr/share/backgrounds/fedora-eln/default/fedora-eln-01-night.png</filename-dark>
         <options>zoom</options>
         <shade_type>solid</shade_type>
         <pcolor>#51a2da</pcolor>
@@ -12,7 +12,7 @@
     </wallpaper>
     <wallpaper deleted="false">
         <name>Fedora ELN Time of Day</name>
-        <filename>/usr/share/backgrounds/eln/default/fedora-eln.xml</filename>
+        <filename>/usr/share/backgrounds/fedora-eln/default/fedora-eln.xml</filename>
         <options>zoom</options>
     </wallpaper>
 </wallpapers>
