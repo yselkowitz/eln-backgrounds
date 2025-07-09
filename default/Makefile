@@ -9,7 +9,8 @@ WP_PNG_DESTS=$(THEMES_PNG:%=$(WP_BG_DIR)/%)
 
 INSTALL_RULES= \
 	install-base \
-	install-gnome
+	install-gnome \
+	install-kde
 
 .PHONY: $(WP_PNG_DESTS) $(INSTALL_RULES) \
         all install
@@ -34,3 +35,7 @@ install-gnome:
 	#~ GNOME background
 	$(MKDIR) $(GNOME_BG_DIR)
 	$(INSTALL) gnome-backgrounds-$(WP_NAME).xml	$(GNOME_BG_DIR)/$(WP_NAME).xml
+
+install-kde:	
+	#~ KDE and Plasma background
+	python3 ../gnome2extra.py --author "Fedora Project" --license "CC-BY-SA-4.0" -o $(KDE_BG_ROOT) gnome-backgrounds-$(WP_NAME).xml

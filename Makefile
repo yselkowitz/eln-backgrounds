@@ -9,6 +9,7 @@ WP_INSTALL_ROOT=$(DESTDIR)/usr/share
 WP_REL_PATH=backgrounds/$(WP_NAME)
 
 WP_BG_ROOT=$(WP_INSTALL_ROOT)/$(WP_REL_PATH)
+KDE_BG_ROOT=$(WP_INSTALL_ROOT)/wallpapers/
 GNOME_BG_DIR=$(WP_INSTALL_ROOT)/gnome-background-properties
 
 MAGICK=/usr/bin/magick

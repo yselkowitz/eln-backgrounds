@@ -2,7 +2,7 @@
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
     <wallpaper deleted="false">
-        <name>Fedora ELN Default</name>
+        <name>Fedora ELN</name>
         <filename>/usr/share/backgrounds/fedora-eln/default/fedora-eln-01-day.png</filename>
         <filename-dark>/usr/share/backgrounds/fedora-eln/default/fedora-eln-01-night.png</filename-dark>
         <options>zoom</options>

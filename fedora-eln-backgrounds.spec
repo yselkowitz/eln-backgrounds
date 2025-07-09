@@ -13,6 +13,7 @@ BuildArch:      noarch
 
 BuildRequires:  make
 BuildRequires:  ImageMagick
+BuildRequires:  python3
 
 %if 0%{?eln}
 Provides:       system-backgrounds
@@ -21,6 +22,17 @@ Provides:       system-backgrounds
 
 %description
 This package contains desktop backgrounds for the Fedora ELN default theme.
+
+%package        kde
+Summary:        Fedora ELN default wallpaper for KDE
+Requires:       %{name} = %{version}-%{release}
+Requires:       kde-filesystem
+%if %{defined eln}
+#Provides:       desktop-backgrounds-compat
+%endif
+
+%description    kde
+This package contains KDE desktop wallpaper for the Fedora ELN default theme.
 
 
 %prep
@@ -40,6 +52,12 @@ install -m 644 \
     default/10_org.gnome.desktop.background.default.gschema.override \
     default/10_org.gnome.desktop.screensaver.default.gschema.override \
     %{buildroot}%{_datadir}/glib-2.0/schemas
+
+ln -s fedora-eln/default/fedora-eln-01-day.png %{buildroot}%{_datadir}/backgrounds/default.png
+ln -s fedora-eln/default/fedora-eln-01-night.png %{buildroot}%{_datadir}/backgrounds/default-night.png
+ln -s fedora-eln/default/fedora-eln.xml %{buildroot}%{_datadir}/backgrounds/default.xml
+
+ln -s Fedora_ELN %{buildroot}%{_datadir}/wallpapers/00Default
 %endif
 
 %files
@@ -52,6 +70,15 @@ install -m 644 \
 %{_datadir}/gnome-background-properties/fedora-eln.xml
 %if %{defined eln}
 %{_datadir}/glib-2.0/schemas/*.override
+%endif
+
+%files compat
+%{_datadir}/backgrounds/default*.{png,xml}
+
+%files kde
+%{_datadir}/wallpapers/Fedora_ELN/
+%if %{defined eln}
+%{_datadir}/wallpapers/00Default
 %endif
 
 %changelog
