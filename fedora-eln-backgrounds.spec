@@ -22,6 +22,17 @@ Provides:       system-backgrounds
 %description
 This package contains desktop backgrounds for the Fedora ELN default theme.
 
+%package        kde
+Summary:        Fedora ELN default wallpaper for KDE
+Requires:       %{name} = %{version}-%{release}
+Requires:       kde-filesystem
+%if %{defined eln}
+Provides:       epel-backgrounds-kde
+%endif
+
+%description    kde
+This package contains KDE desktop wallpaper for the Fedora ELN default theme.
+
 
 %prep
 %autosetup -n %{short_name}-%{version}
@@ -40,6 +51,8 @@ install -m 644 \
     default/10_org.gnome.desktop.background.default.gschema.override \
     default/10_org.gnome.desktop.screensaver.default.gschema.override \
     %{buildroot}%{_datadir}/glib-2.0/schemas
+
+ln -s ELN %{buildroot}%{_datadir}/wallpapers/EL
 %endif
 
 %files
@@ -52,6 +65,12 @@ install -m 644 \
 %{_datadir}/gnome-background-properties/fedora-eln.xml
 %if %{defined eln}
 %{_datadir}/glib-2.0/schemas/*.override
+%endif
+
+%files kde
+%{_datadir}/wallpapers/ELN/
+%if %{defined eln}
+%{_datadir}/wallpapers/EL
 %endif
 
 %changelog

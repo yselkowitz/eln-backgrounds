@@ -1,5 +1,6 @@
 WP_BG_DIR=$(WP_BG_ROOT)/default
 WP_BG_REL=$(WP_REL_PATH)/default
+KDE_BG_DIR=$(KDE_BG_ROOT)/$(WP_BIGNAME)
 
 THEMES_PNG= \
 	$(WP_NAME)-01-day.png \
@@ -9,7 +10,8 @@ WP_PNG_DESTS=$(THEMES_PNG:%=$(WP_BG_DIR)/%)
 
 INSTALL_RULES= \
 	install-base \
-	install-gnome
+	install-gnome \
+	install-kde
 
 .PHONY: $(WP_PNG_DESTS) $(INSTALL_RULES) \
         all install
@@ -34,3 +36,15 @@ install-gnome:
 	#~ GNOME background
 	$(MKDIR) $(GNOME_BG_DIR)
 	$(INSTALL) gnome-backgrounds-$(WP_NAME).xml	$(GNOME_BG_DIR)/$(WP_NAME).xml
+
+install-kde:	
+	#~ KDE and Plasma background
+	$(MKDIR) $(KDE_BG_DIR)/contents/images
+	$(MKDIR) $(KDE_BG_DIR)/contents/images_dark
+	$(INSTALL) $(WP_NAME)-metadata.json $(KDE_BG_DIR)/metadata.json
+	for res in $(RESOLUTIONS); do \
+	  $(LN_S) ../../../../$(WP_BG_REL)/$(WP_NAME)-01-day.png \
+	          $(KDE_BG_DIR)/contents/images/$${res}.png ; \
+	  $(LN_S) ../../../../$(WP_BG_REL)/$(WP_NAME)-01-night.png \
+	          $(KDE_BG_DIR)/contents/images_dark/$${res}.png ; \
+	done;
