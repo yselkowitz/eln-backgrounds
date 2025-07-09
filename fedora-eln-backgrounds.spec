@@ -8,19 +8,24 @@ Summary:        Fedora ELN default desktop background
 License:        CC-BY-SA-4.0
 URL:            https://docs.fedoraproject.org/en-US/eln/
 Source0:        https://github.com/fedora-eln/%{short_name}/archive/refs/tags/%{version}.tar.gz
+Source1:        gbp2kwp.py
 
 BuildArch:      noarch
 
 BuildRequires:  make
 BuildRequires:  ImageMagick
+BuildRequires:  python3
 
 %if 0%{?eln}
 Provides:       system-backgrounds = %{version}-%{release}
 Provides:       system-backgrounds-gnome = %{version}-%{release}
+Provides:       system-backgrounds-kde = %{version}-%{release}
 Provides:       system-backgrounds-compat = %{version}-%{release}
 # for upgrade compatibility
 Provides:       desktop-backgrounds-gnome = %{version}-%{release}
 Obsoletes:      desktop-backgrounds-gnome
+Provides:       desktop-backgrounds-kde = %{version}-%{release}
+Obsoletes:      desktop-backgrounds-kde
 Provides:       desktop-backgrounds-compat = %{version}-%{release}
 Obsoletes:      desktop-backgrounds-compat
 %endif
@@ -41,6 +46,8 @@ This package contains desktop backgrounds for the Fedora ELN default theme.
 %install
 %make_install
 
+python3 %{S:1} -a "Fedora ELN SIG" -l "CC-BY-SA-4.0" -d %{buildroot} default/gnome-backgrounds-fedora-eln.xml
+
 %if %{defined eln}
 mkdir -p %{buildroot}%{_datadir}/glib-2.0/schemas
 install -m 644 \
@@ -51,6 +58,8 @@ install -m 644 \
 ln -s fedora-eln/default/fedora-eln-01-day.png %{buildroot}%{_datadir}/backgrounds/default.png
 ln -s fedora-eln/default/fedora-eln-01-night.png %{buildroot}%{_datadir}/backgrounds/default-dark.png
 ln -s fedora-eln/default/fedora-eln.xml %{buildroot}%{_datadir}/backgrounds/default.xml
+
+ln -s Fedora_ELN_Default %{buildroot}%{_datadir}/wallpapers/Default
 %endif
 
 %files
@@ -61,9 +70,12 @@ ln -s fedora-eln/default/fedora-eln.xml %{buildroot}%{_datadir}/backgrounds/defa
 %dir %{_datadir}/gnome-background-properties/
 %{_datadir}/backgrounds/fedora-eln/default/fedora-eln*.{png,xml}
 %{_datadir}/gnome-background-properties/fedora-eln.xml
+%dir %{_datadir}/wallpapers/
+%{_datadir}/wallpapers/Fedora_ELN*/
 %if %{defined eln}
 %{_datadir}/backgrounds/default*.{png,xml}
 %{_datadir}/glib-2.0/schemas/*.override
+%{_datadir}/wallpapers/Default
 %endif
 
 %changelog
