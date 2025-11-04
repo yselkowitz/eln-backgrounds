@@ -1,7 +1,7 @@
 %global short_name backgrounds
 
 Name:           fedora-eln-backgrounds
-Version:        1.2
+Version:        1.3
 Release:        %autorelease
 Summary:        Fedora ELN default desktop background
 

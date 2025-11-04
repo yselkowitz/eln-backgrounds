@@ -1,5 +1,5 @@
 SUBDIRS = default
-VERSION = 1.2
+VERSION = 1.3
 NAME =  fedora-eln-backgrounds-$(VERSION)
 
 WP_NAME=fedora-eln
