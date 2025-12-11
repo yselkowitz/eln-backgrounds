@@ -15,7 +15,11 @@ BuildRequires:  make
 BuildRequires:  ImageMagick
 
 %if 0%{?eln}
-Provides:       system-backgrounds
+Provides:       system-backgrounds = %{version}-%{release}
+Provides:       system-backgrounds-gnome = %{version}-%{release}
+# for upgrade compatibility
+Provides:       desktop-backgrounds-gnome = %{version}-%{release}
+Obsoletes:      desktop-backgrounds-gnome
 %endif
 
 
