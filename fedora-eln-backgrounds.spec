@@ -17,9 +17,12 @@ BuildRequires:  ImageMagick
 %if 0%{?eln}
 Provides:       system-backgrounds = %{version}-%{release}
 Provides:       system-backgrounds-gnome = %{version}-%{release}
+Provides:       system-backgrounds-compat = %{version}-%{release}
 # for upgrade compatibility
 Provides:       desktop-backgrounds-gnome = %{version}-%{release}
 Obsoletes:      desktop-backgrounds-gnome
+Provides:       desktop-backgrounds-compat = %{version}-%{release}
+Obsoletes:      desktop-backgrounds-compat
 %endif
 
 
@@ -44,6 +47,10 @@ install -m 644 \
     default/10_org.gnome.desktop.background.default.gschema.override \
     default/10_org.gnome.desktop.screensaver.default.gschema.override \
     %{buildroot}%{_datadir}/glib-2.0/schemas
+
+ln -s fedora-eln/default/fedora-eln-01-day.png %{buildroot}%{_datadir}/backgrounds/default.png
+ln -s fedora-eln/default/fedora-eln-01-night.png %{buildroot}%{_datadir}/backgrounds/default-dark.png
+ln -s fedora-eln/default/fedora-eln.xml %{buildroot}%{_datadir}/backgrounds/default.xml
 %endif
 
 %files
@@ -55,6 +62,7 @@ install -m 644 \
 %{_datadir}/backgrounds/fedora-eln/default/fedora-eln*.{png,xml}
 %{_datadir}/gnome-background-properties/fedora-eln.xml
 %if %{defined eln}
+%{_datadir}/backgrounds/default*.{png,xml}
 %{_datadir}/glib-2.0/schemas/*.override
 %endif
 
