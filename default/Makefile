@@ -3,7 +3,8 @@ WP_BG_REL=$(WP_REL_PATH)/default
 
 THEMES_PNG= \
 	$(WP_NAME)-01-day.png \
-	$(WP_NAME)-01-night.png
+	$(WP_NAME)-01-night.png \
+	$(WP_NAME)-beefy-miracle.png
 
 WP_PNG_DESTS=$(THEMES_PNG:%=$(WP_BG_DIR)/%)
 
