@@ -16,7 +16,7 @@ KDE_WALLPAPER_DIR = 'usr/share/wallpapers'
 def create_image_symlink(image: str, name: str, destdir: Path, dark: bool = False):
     installed_image = os.path.join(destdir, image.lstrip(os.sep))
     # hard-coded values in Plasma
-    dimensions = ["1024x768", "1280x800", "1440x2960", "1920x1080", "5120x2880"]
+    dimensions = ["1024x768", "1280x800", "1440x2960", "1920x1080", "3840x2160", "5120x2880"]
     _, extension = os.path.splitext(image)
     symlink_dir = os.path.join(destdir, KDE_WALLPAPER_DIR, name, 'contents',
                                'images_dark' if dark else 'images')
