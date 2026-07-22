@@ -18,10 +18,13 @@ BuildRequires:  python3
 
 %if 0%{?eln}
 Provides:       system-backgrounds = %{version}-%{release}
+Provides:       system-backgrounds-budgie = %{version}-%{release}
 Provides:       system-backgrounds-gnome = %{version}-%{release}
 Provides:       system-backgrounds-kde = %{version}-%{release}
 Provides:       system-backgrounds-compat = %{version}-%{release}
 # for upgrade compatibility
+Provides:       desktop-backgrounds-budgie = %{version}-%{release}
+Obsoletes:      desktop-backgrounds-budgie
 Provides:       desktop-backgrounds-gnome = %{version}-%{release}
 Obsoletes:      desktop-backgrounds-gnome
 Provides:       desktop-backgrounds-kde = %{version}-%{release}
@@ -53,6 +56,9 @@ mkdir -p %{buildroot}%{_datadir}/glib-2.0/schemas
 install -m 644 \
     default/10_org.gnome.desktop.background.default.gschema.override \
     default/10_org.gnome.desktop.screensaver.default.gschema.override \
+    default/30_budgie_org.gnome.desktop.background.default.gschema.override \
+    default/30_budgie_org.gnome.desktop.screensaver.default.gschema.override \
+    default/30_budgie_x.dm.slick_greeter.default.gschema.override \
     %{buildroot}%{_datadir}/glib-2.0/schemas
 
 ln -s fedora-eln/default/fedora-eln-01-day.png %{buildroot}%{_datadir}/backgrounds/default.png
